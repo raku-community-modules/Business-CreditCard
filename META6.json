@@ -1,12 +1,23 @@
 {
-    "perl"          : "6.*",
-    "name"          : "Business::CreditCard",
-    "version"       : "0.1.0",
-    "author"        : "github:fayland",
-    "description"   : "Validate/generate credit card checksums/names",
-    "depends"       : [],
-    "provides" : {
-        "Business::CreditCard" : "lib/Business/CreditCard.pm"
-    },
-    "source-url"    : "git://github.com/fayland/perl6-Business-CreditCard.git"
+  "auth": "zef:raku-community-modules",
+  "author": "Fayland Lam",
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Validate/generate credit card checksums/names",
+  "license": "NOASSERTION",
+  "name": "Business::CreditCard",
+  "perl": "6.*",
+  "provides": {
+    "Business::CreditCard": "lib/Business/CreditCard.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/Business-CreditCard.git",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.1.0"
 }

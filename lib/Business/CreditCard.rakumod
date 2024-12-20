@@ -48,7 +48,7 @@ sub cardtype($num is copy) is export {
     return 'Maestro' if ( $f2 == 50 || ($f2 >= 56 and $f2 <= 69) )
         and $len >= 12 and $len <= 19;
 
-    return '';
+    ''
 }
 
 sub validate($num is copy) is export {
@@ -67,5 +67,60 @@ sub validate($num is copy) is export {
         $even = ! $even;
     }
 
-    return ($sum % 10) == 0;
+    ($sum % 10) == 0
 }
+
+say validate("5276 4400 6542 1319");  # True
+say cardtype("5276 4400 6542 1319");  # Visa
+
+=begin pod
+
+=head1 NAME
+
+Business::CreditCard - Validate/generate credit card checksums/names
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+
+use Business::CreditCard;
+
+say validate("5276 4400 6542 1319");  # True
+say cardtype("5276 4400 6542 1319");  # MasterCard
+
+=end code
+
+=head1 DESCRIPTION
+
+These subroutines tell you whether a credit card number is
+self-consistent -- whether the last digit of the number is a valid
+checksum for the preceding digits.
+
+The C<validate> subroutine returns C<True> if the card number provided
+passes the checksum test, and C<False> otherwise.
+
+The C<cardtype> subroutine returns a string containing the type of
+card.
+
+=head1 ACKNOWLEDGEMENTS
+
+This distribution owes a great debt to Perl's
+L<C<Business::CreditCard>|https://metacpan.org/pod/Business::CreditCard>,
+originally written by I<Jon Orwant>, and currently maintained
+by I<Ivan Kohler>.
+
+=head1 AUTHOR
+
+Fayland Lam
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2015 - 2017 Fayland Lam
+
+Copyright 2024 Raku Community
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod
+
+# vim: expandtab shiftwidth=4
