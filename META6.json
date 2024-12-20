@@ -6,7 +6,7 @@
   "depends": [
   ],
   "description": "Validate/generate credit card checksums/names",
-  "license": "NOASSERTION",
+  "license": "Artistic-2.0",
   "name": "Business::CreditCard",
   "perl": "6.*",
   "provides": {
@@ -16,8 +16,10 @@
   ],
   "source-url": "https://github.com/raku-community-modules/Business-CreditCard.git",
   "tags": [
+    "BUSINESS",
+    "CREDITCARD"
   ],
   "test-depends": [
   ],
-  "version": "0.1.0"
+  "version": "0.1.1"
 }

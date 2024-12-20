@@ -70,9 +70,6 @@ sub validate($num is copy) is export {
     ($sum % 10) == 0
 }
 
-say validate("5276 4400 6542 1319");  # True
-say cardtype("5276 4400 6542 1319");  # Visa
-
 =begin pod
 
 =head1 NAME
