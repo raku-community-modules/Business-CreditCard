@@ -1,7 +1,7 @@
 use Test;
 use Business::CreditCard;
 
-plan 61;
+plan 57;
 
 my @et = (
     '',         # null
@@ -52,9 +52,7 @@ my @tv = (
     ['6011 2222 3333 4445', 0], # bad crc
     ['6011 2222 3333 44440', 0],    # too long
 # enRoute
-    ['2014 2222',   6],     # no crc
-    ['2014 2223',   6],
-    ['2014 2222 3333 4444 5555', 6], # no lenth
+    ['2014 2222 3333 444', 6], # no lenth
 # jcb, FIXME, we have problems with JCB
     # ['3100 2222 3333 4443', 7],
     ['3100 2222 3333 4443 0', 0],   # too long
@@ -67,7 +65,7 @@ for @tv -> $tv {
     my ($num, $rst) = $tv.list;
     if ($rst) {
         ok validate($num), "$num is ok";
-        my $cardtype = cardtype($num);
+        my $cardtype = cardtype($num, :obsolete);
         is $cardtype, @et[$rst], "$num -> $cardtype";
     } else {
         ok ! validate($num), "$num is not ok";

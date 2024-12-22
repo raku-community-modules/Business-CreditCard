@@ -1,6 +1,15 @@
 Revision history for Business::CreditCard
 
 {{$NEXT}}
+    - Completely reworked the handling of "cardtype": instead of
+      a string, it now returns a CardTypes enum (which is also
+      exported) which can be used for numeric comparisons.  Based
+      the lookup logic on both the Perl's equivalent module, and
+      the information on Wikipedia
+    - Added current test-suite of Perl's equivalent module,
+      plus some fixes
+    - Added another author, which feels appropriate by the amount
+      of refactoring done
 
 0.1.1  2024-12-20T20:00:58+01:00
     - Initial version as a Raku Community module

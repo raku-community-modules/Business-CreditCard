@@ -1,0 +1,46 @@
+use Test;
+
+use Business::CreditCard;
+
+my @tests = 
+  5212345678901234,    MasterCard,
+  5512345678901234,    MasterCard,
+  2512345678901234,    MasterCard,
+  4123456789012,       Visa,
+  4929492492497,       Visa,
+  4512345678901234,    Visa,
+  341234567890123,     AmericanExpress,
+  371234567890123,     AmericanExpress,
+#  36123456789012,      DinersClub,
+#  36123456789012,      MasterCard,
+  36123456789012,      Discover,
+  201412345678901,     enRoute,
+  214912345678901,     enRoute,
+  6011123456789012,    Discover,
+  3123456789012345,    JCB,
+  213112345678901,     JCB,
+  180012345678901,     JCB,
+  1800123456789012,    NotACreditCard,
+  312345678901234,     NotACreditCard,
+  6304980000000000004, Laser,
+  3056111111111110,    Discover,
+  12345678,            IsraCard,
+  123456780,           IsraCard,
+
+  '4111xxxxxxxxxxxx',    Visa,
+  '6599xxxxxxxxxxxx',    Troy,
+  '6222xxxxxxxxxxxx',    Discover, # China Union Pay
+  '6499xxxxxxxxxxxx',    Discover,
+  '5610xxxxxxxxxxxx',    BankCard,
+  '6250xxxxxxxxxxxx',    Discover, # China Union Pay
+  '6280xxxxxxxxxxxx',    Discover, # China Union Pay
+  '60xx xxxx xxxx xxxx', GPN,
+  '3056xxxxxxxxxxxx',    Discover,
+;
+
+plan @tests / 2;
+
+for @tests -> $number, $expected {
+    is-deeply cardtype($number), $expected,
+      "did '$number' produce '$expected'";
+}

@@ -1,6 +1,9 @@
 {
   "auth": "zef:raku-community-modules",
-  "author": "Fayland Lam",
+  "authors": [
+    "Fayland Lam",
+    "Elizabeth Mattijsen"
+  ],
   "build-depends": [
   ],
   "depends": [
